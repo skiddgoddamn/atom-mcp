@@ -1,0 +1,19 @@
+{
+  "name": "atom-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for the getatom.ru entrepreneur cabinet: Pulse, tasks, reports, OKK, team, chats. A thin stdio proxy; the tool list always comes live from the server.",
+  "type": "module",
+  "bin": { "atom-mcp": "dist/index.js" },
+  "main": "dist/index.js",
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --test test/proxy.test.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "engines": { "node": ">=18" },
+  "keywords": ["mcp", "model-context-protocol", "getatom", "atom", "claude-code", "codex", "cursor"],
+  "license": "MIT",
+  "dependencies": { "@modelcontextprotocol/sdk": "^1.32.2" },
+  "devDependencies": { "@types/node": "^22.0.0", "typescript": "^5.6.0" }
+}
