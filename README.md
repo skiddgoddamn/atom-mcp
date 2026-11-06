@@ -59,17 +59,28 @@ and `export ATOM_MCP_TOKEN=atm_YOUR_TOKEN`.
 For clients without HTTP support:
 
 ```bash
-claude mcp add atom --scope user --env ATOM_MCP_TOKEN=atm_YOUR_TOKEN -- npx -y @getatom/mcp
+claude mcp add atom --scope user --env ATOM_MCP_TOKEN=atm_YOUR_TOKEN -- npx -y @getatom/mcp@latest
 ```
 
 ```json
-{ "mcpServers": { "atom": { "command": "npx", "args": ["-y", "@getatom/mcp"], "env": { "ATOM_MCP_TOKEN": "atm_YOUR_TOKEN" } } } }
+{ "mcpServers": { "atom": { "command": "npx", "args": ["-y", "@getatom/mcp@latest"], "env": { "ATOM_MCP_TOKEN": "atm_YOUR_TOKEN" } } } }
 ```
 
 | Variable | Default | |
 | --- | --- | --- |
 | `ATOM_MCP_TOKEN` | required | token from the cabinet |
 | `ATOM_BASE_URL` | `https://getatom.ru` | override for tests |
+
+## Updates
+
+- **Tools update themselves.** The package holds no tool list. It re-reads the catalog from the server every 10 minutes (override: `ATOM_TOOLS_REFRESH_MS`) and, when it changed, sends `notifications/tools/list_changed`, so Claude Code, Claude Desktop and others pick up new tools without a restart.
+- **Package version check.** On start, at most once per 24 hours (cached in the OS temp dir), the package asks `registry.npmjs.org` for the latest version (3 s timeout, silent offline). If a newer one exists, it writes a line to stderr, adds it to the server instructions and appends a short notice to the first tool result of the session. It never installs anything by itself. Disable with `ATOM_MCP_NO_UPDATE_CHECK=1`.
+- **Always the newest package.** Use `npx -y @getatom/mcp@latest` as in the configs above: every launch then takes the current version.
+
+## Что нового
+
+- **1.1.0**: инструменты обновляются на лету (`list_changed`, опрос раз в 10 минут), проверка новой версии пакета раз в сутки, конфиг с `@latest`.
+- **1.0.0**: первый выпуск, stdio-прокси к MCP getatom.ru.
 
 ## First prompt
 

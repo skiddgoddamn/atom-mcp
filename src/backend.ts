@@ -22,7 +22,7 @@ export async function rpc<T>(cfg: BackendConfig, method: string, params?: unknow
       "Content-Type": "application/json",
       Accept: "application/json",
       Authorization: `Bearer ${cfg.token}`,
-      "User-Agent": "atom-mcp/1.0",
+      "User-Agent": "atom-mcp",
     },
     body: JSON.stringify({ jsonrpc: "2.0", id: nextId++, method, params: params ?? {} }),
     signal: AbortSignal.timeout(cfg.timeoutMs ?? 60_000),
