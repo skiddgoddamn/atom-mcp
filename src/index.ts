@@ -16,7 +16,7 @@ if (!token || !token.startsWith("atm_")) {
 const cfg: BackendConfig = { baseUrl: process.env.ATOM_BASE_URL?.trim() || "https://getatom.ru", token };
 
 const server = new Server(
-  { name: "atom-mcp", version: "1.0.0" },
+  { name: "@getatom/mcp", version: "1.0.0" },
   {
     capabilities: { tools: {} },
     instructions:

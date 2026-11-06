@@ -1,4 +1,4 @@
-# atom-mcp
+# @getatom/mcp
 
 MCP server for the entrepreneur cabinet at [getatom.ru](https://getatom.ru). It lets agents such as Claude Code, Codex and Cursor configure and use the cabinet:
 
@@ -59,11 +59,11 @@ and `export ATOM_MCP_TOKEN=atm_YOUR_TOKEN`.
 For clients without HTTP support:
 
 ```bash
-claude mcp add atom --scope user --env ATOM_MCP_TOKEN=atm_YOUR_TOKEN -- npx -y atom-mcp
+claude mcp add atom --scope user --env ATOM_MCP_TOKEN=atm_YOUR_TOKEN -- npx -y @getatom/mcp
 ```
 
 ```json
-{ "mcpServers": { "atom": { "command": "npx", "args": ["-y", "atom-mcp"], "env": { "ATOM_MCP_TOKEN": "atm_YOUR_TOKEN" } } } }
+{ "mcpServers": { "atom": { "command": "npx", "args": ["-y", "@getatom/mcp"], "env": { "ATOM_MCP_TOKEN": "atm_YOUR_TOKEN" } } } }
 ```
 
 | Variable | Default | |

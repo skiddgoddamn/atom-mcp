@@ -1,9 +1,11 @@
 {
-  "name": "atom-mcp",
+  "name": "@getatom/mcp",
   "version": "1.0.0",
   "description": "MCP server for the getatom.ru entrepreneur cabinet: Pulse, tasks, reports, OKK, team, chats. A thin stdio proxy; the tool list always comes live from the server.",
   "type": "module",
-  "bin": { "atom-mcp": "dist/index.js" },
+  "bin": { "getatom-mcp": "dist/index.js" },
+  "publishConfig": { "access": "public" },
+  "repository": { "type": "git", "url": "git+https://github.com/skiddgoddamn/atom-mcp.git" },
   "main": "dist/index.js",
   "files": ["dist", "README.md", "LICENSE"],
   "scripts": {
