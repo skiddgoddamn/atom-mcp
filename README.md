@@ -89,4 +89,6 @@ npm install
 npm test     # builds and runs the proxy tests against a fake server
 ```
 
+Source: https://github.com/skiddgoddamn/atom-mcp
+
 MIT license.
