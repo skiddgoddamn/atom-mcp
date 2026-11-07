@@ -9,6 +9,9 @@ MCP server for the entrepreneur cabinet at [getatom.ru](https://getatom.ru). It 
 - **Team**: members, roles, groups, permissions, invites
 - **Chats and messages**: threads, history, search, send
 - **Navigation**: company menu rules and personal menu
+- **Profile and communities**: `get_my_profile`, `update_my_profile`, `list_my_groups` (communities where you are admin), group admin tools (`group_*`)
+- **Marketplace**: `create_marketplace_listing`, `update_marketplace_listing`, `pause_marketplace_listing`, `activate_marketplace_listing`, `delete_marketplace_listing`, `respond_to_marketplace_listing`, `list_marketplace_responses`
+- **Partner program**: `get_partner_overview`, `list_partner_referrals`, `list_partner_accruals` and partner links with stats (`partner_list_links`, `partner_create_link`, `partner_update_link`, `partner_delete_link`, `partner_link_stats`). Withdrawals are deliberately not available over MCP.
 
 Every call runs with the rights of the token owner. The server checks roles and permissions exactly as the web app does.
 
@@ -79,6 +82,7 @@ claude mcp add atom --scope user --env ATOM_MCP_TOKEN=atm_YOUR_TOKEN -- npx -y @
 
 ## Что нового
 
+- **1.2.0**: профиль и сообщества (`get_my_profile`, `update_my_profile`, `list_my_groups`, `group_*`), маркетплейс (создание, правка, пауза, удаление объявлений, отклики), партнерка (обзор, рефералы, начисления, партнерские ссылки и их статистика). Вывод средств через MCP недоступен намеренно. В чате внутри кабинета все инструменты записи выполняются через карточку подтверждения.
 - **1.1.0**: инструменты обновляются на лету (`list_changed`, опрос раз в 10 минут), проверка новой версии пакета раз в сутки, конфиг с `@latest`.
 - **1.0.0**: первый выпуск, stdio-прокси к MCP getatom.ru.
 
@@ -91,6 +95,7 @@ claude mcp add atom --scope user --env ATOM_MCP_TOKEN=atm_YOUR_TOKEN -- npx -y @
 - 120 calls per minute per token, 30 per minute for non-read calls.
 - Every call is audited on the server (tool, company, result; arguments are not stored).
 - A token reaches only the tool registry, never the rest of the API, and cannot create or revoke tokens.
+- In the in-cabinet chat, write tools go through a confirm card: the action runs only after you press confirm.
 - Keep tokens out of git. Revoke one that leaked.
 
 ## Development
