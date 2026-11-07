@@ -4,6 +4,7 @@ MCP server for the entrepreneur cabinet at [getatom.ru](https://getatom.ru). It 
 
 - **Pulse**: companies, integrations (amoCRM, Bitrix24, ad accounts), settings, dashboard metrics, losses, deals
 - **Tasks and projects**: boards, columns, tasks, comments
+- **Task reminders and digest**: `get_task_digest` (my tasks for today, tomorrow or the week, like the /today /tomorrow /week bot commands), `get_my_reminder_settings`, `update_my_reminder_settings`, `reset_my_reminder_settings` (personal offsets in minutes, 08:00 task digest, quiet hours, channels: cabinet, Telegram, email, overdue notice, time zone). Defaults: 30 and 10 minutes before the deadline and a digest at 08:00. Plain-words tasks with a deadline and a repeat go through the cabinet chat (`propose_task`, `recurrence_text`).
 - **Reports** and their Telegram chats: targets, link codes, subscriptions, previews, runs, report rules
 - **OKK** (sales quality control): summary, findings, forgotten deals, deal review
 - **Team**: members, roles, groups, permissions, invites
