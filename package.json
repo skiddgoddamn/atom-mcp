@@ -1,6 +1,6 @@
 {
   "name": "@getatom/mcp",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "MCP server for the getatom.ru entrepreneur cabinet: Pulse, tasks, reports, OKK, team, chats. A thin stdio proxy; the tool list always comes live from the server.",
   "type": "module",
   "bin": {
